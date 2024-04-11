@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "Deleting previous configuration..."
-ip addr del 10.10.10.100/24 dev v-net-0
+ip addr add 10.10.10.100/24 dev v-net-0
 
 ip netns exec green ip route del default via 10.10.10.100
 ip netns exec yellow ip route del default via 10.10.10.100
