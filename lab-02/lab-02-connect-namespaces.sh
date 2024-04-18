@@ -1,9 +1,4 @@
 #!/bin/sh
-echo "Deleting previous configuration..."
-ip -all netns delete
-#ip link del lab2-br
-sleep 5
-
 echo "Creating namespaces..."
 ip netns add yellow
 ip netns add green

@@ -32,3 +32,6 @@ sleep 1
 
 echo "--- OVS show..."
 ovs-vsctl show
+
+echo "--- TOPOLOGY as in figure, no vlan are configured..."
+

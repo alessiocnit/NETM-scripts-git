@@ -1,18 +1,7 @@
 #!/bin/sh
 
-echo "Deleting previous configuration..."
-ip addr add 10.10.10.100/24 dev v-net-0
-
-ip netns exec green ip route del default via 10.10.10.100
-ip netns exec yellow ip route del default via 10.10.10.100
-ip netns exec violet ip route del default via 10.10.10.100
-ip netns exec cyan ip route del default via 10.10.10.100
-
-sudo sysctl net.ipv4.ip_forward=0
-
-iptables -t nat -A POSTROUTING -s 10.10.10.0/24 -j MASQUERADE
-
 #Try ping from host to green - not working
+
 #Solution
 echo "Assign an IP to the bridge..."
 ip addr add 10.10.10.100/24 dev v-net-0
