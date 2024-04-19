@@ -1,4 +1,7 @@
 #!/bin/sh
+
+# START from scratch
+
 echo "--- Creating namespaces..."
 ip netns add yellow
 ip netns add green

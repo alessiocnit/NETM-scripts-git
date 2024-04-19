@@ -1,7 +1,8 @@
 #!/bin/sh
 
-echo "--- Create a second OVS switch named lab2-br2..."
+# START from switched network configured in lab2 that used lab2-br1
 
+echo "--- Create a second OVS switch named lab2-br2..."
 ovs-vsctl add-br lab2-br2
 sleep 1
 
