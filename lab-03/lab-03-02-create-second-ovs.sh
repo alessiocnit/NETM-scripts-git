@@ -9,7 +9,7 @@ sleep 1
 ifconfig lab2-br2 up
 sleep 1
 
-echo "--- Move green and violet switches to lab2-br2..."
+echo "--- Move green and violet namespaces to switch lab2-br2..."
 ovs-vsctl del-port lab2-br1 veth-violet-br
 ovs-vsctl del-port lab2-br1 veth-green-br
 ovs-vsctl add-port lab2-br2 veth-violet-br
