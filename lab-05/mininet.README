@@ -1,0 +1,17 @@
+Following steps may be required to run a python mininet script:
+
+1. Install python 3
+
+> sudo apt install python3
+> sudo apt install python3-pip
+> pip3 install mininet
+
+2. Install openvswitch controller
+
+> sudo apt install openvswitch-testcontroller
+
+3. Resolve conflicts among controllers
+
+> sudo fuser -k 6653/tcp
+
+

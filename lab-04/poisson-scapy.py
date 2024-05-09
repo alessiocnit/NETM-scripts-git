@@ -23,20 +23,18 @@ def generate_packets():
         
         packet_length = generate_packet_length()
         packet_data = bytearray(random.getrandbits(8) for _ in range(packet_length))
-        print("Packet data:", bytearray(4))
-        
+
         # UDP packet creation with SCAPY
-        packet = IP(dst="192.168.242.2")/Ether(type=0x0800)/Raw(load=packet_data)
-        real_packet_length = len(packet)
+        packet = IP(dst="10.0.2.2")/Ether(type=0x0800)/Raw(load=packet_data)
         
         # Send packet using SCAPY
-        send(packet, iface="enp0s8", verbose=False)
+        send(packet, iface="enp0s3", verbose=False)
 
         generated_packets = generated_packets + 1
         generated_bytes = generated_bytes + packet_length
         generated_average_length = str("{:.2f}".format(generated_bytes / generated_packets))
 
-        print("Actual packet " + str(packet_length) + " " + str(real_packet_length) + " bytes - current average length: " + generated_average_length + " bytes")
+        print("Actual packet " + str(packet_length) + " bytes - current average length: " + generated_average_length + " bytes")
 
 # Avvia la generazione dei pacchetti
 print("Expected average packet length:", 1/lambda_length)
