@@ -1,0 +1,26 @@
+An SDN controller can be used with Mininet.
+
+In this course we use a docker container running ONOS SDN controller
+--> with the only target to visualize network topology built by Mininet
+
+Install docker:
+
+> sudo apt update
+
+> sudo apt install docker.io
+
+> sudo docker pull onosproject/onos
+
+> sudo docker run -t -d --name onos onosproject/onos
+
+SDN controller docker is running in your PC with this address: 172.17.0.2
+
+Check if it is active:
+
+> ping 172.17.0.2
+
+SDN controller needs some configuration:
+
+> ./lab-05-05-controller-configuration.sh
+
+

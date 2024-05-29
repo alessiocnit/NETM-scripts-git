@@ -4,7 +4,7 @@ import time
 import logging
 from scapy.all import *
 
-lambda_arrival = 2  # Intensity of arrivals (packets per second)
+lambda_arrival = 0.1  # Intensity of arrivals (packets per second)
 lambda_length = 0.002  # Intensity of length (packets per byte) thus average length 1/lambda_length
 
 def generate_packet_length():
@@ -21,7 +21,7 @@ def generate_packets():
         interarrival_time = random.expovariate(lambda_arrival)
         time.sleep(interarrival_time)
         
-        packet_length = generate_packet_length()
+        packet_length = 4
         packet_data = bytearray(random.getrandbits(8) for _ in range(packet_length))
 
         # UDP packet creation with SCAPY

@@ -1,12 +1,12 @@
 import random
 import math
 
-_lambda = 1
-_num_total_arrivals = 10
+_lambda = 2
+_num_total_arrivals = 1000
 _num_arrivals = 0
 _arrival_time = 0
 _num_arrivals_in_unit_time = []
-_time_tick = 2
+_time_tick = 10
 _time_threshold = _time_tick
 
 print('EVENT ID - RANDOM_N - INTER_ARRIVAL_TIME - EVENT_ARRIVAL_TIME')
