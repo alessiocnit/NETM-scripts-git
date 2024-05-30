@@ -29,7 +29,7 @@ if __name__ == '__main__':
     hosts_per_switch = 4
     if len(argv) > 2:
         racks = int(argv[1])
-        host_per_switch = int(argv[2])
+        hosts_per_switch = int(argv[2])
     topo = ParametricTreeTopology(racks, hosts_per_switch)
     net = Mininet(topo)
     net.start()

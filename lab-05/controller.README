@@ -11,9 +11,17 @@ Install docker:
 
 > sudo docker pull onosproject/onos
 
+To run the controller:
+
 > sudo docker run -t -d --name onos onosproject/onos
 
-SDN controller docker is running in your PC with this address: 172.17.0.2
+To stop the controller:
+
+> sudo docker stop onos
+
+> sudo docker rm onos
+
+When SDN controller docker is running in your PC with this address: 172.17.0.2
 
 Check if it is active:
 

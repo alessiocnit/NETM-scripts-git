@@ -3,7 +3,6 @@ from mininet.topo import Topo
 from mininet.log import setLogLevel
 from mininet.cli import CLI
 from mininet.node import RemoteController
-from mininet.link import TCLink
 
 import sys
 from sys import argv
@@ -75,7 +74,7 @@ class MyTopology(Topo):
         self.addLink(h92, s9)
 
 	# Add device to device links (infrastructure links)
-        self.addLink(s1, s2, cls=TCLink, bw=10)
+        self.addLink(s1, s2)
         self.addLink(s2, s3)
         self.addLink(s1, s4)
         self.addLink(s4, s5)
@@ -100,11 +99,9 @@ if __name__ == '__main__':
 
     #Initialization of Mininet topology
     topo = MyTopology()
-    cont = RemoteController('c', '172.17.0.2')
     
     #Creation of Mininet topology
-    net = Mininet(topo,controller=None)
-    net.addController(cont)
+    net = Mininet(topo=topo)
 
     #Execution of Mininet topology
     net.start()
