@@ -2,11 +2,11 @@
 
 echo "Stop ONOS docker container"
 sudo docker stop onos
-sleep 1
+sleep 2
 
 echo "Remove ONOS docker container"
 sudo docker rm onos
-sleep 1
+sleep 20
 
 echo "Start ONOS docker container"
 sudo docker run -t -d --name onos onosproject/onos
