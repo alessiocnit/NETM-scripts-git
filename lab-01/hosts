@@ -1,0 +1,6 @@
+#NETM - Lab - this file to be copied in /etc/netns/NAME
+10.10.10.1      yellow
+10.10.10.2      green
+10.10.10.3      violet
+10.10.10.4      cyan
+
