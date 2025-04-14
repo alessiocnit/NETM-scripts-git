@@ -1,0 +1,7 @@
+--- Start from lab02 scripts... 
+- lab02-01 - create OVS switch lab2-br1
+- lab02-02 - add enp0s3 port
+- lab02-03 - configure IP address of the switch
+- lab02-04 - create netns green, yellow, cyan, violet and conenct to the switch
+- lab02-05 - configure IP address of the switch under same subnet of netns
+
