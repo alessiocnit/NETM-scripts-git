@@ -1,0 +1,7 @@
+--- If python is generating ERROR messages related to scapy
+
+> sudo apt install python3-scapy
+
+--- Then execute the script with:
+
+> sudo python3 ./poisson-scapy.py
