@@ -11,8 +11,8 @@ class TreeTopology(Topo):
 
     def build(self):
 
-        s1 = self.addSwitch('s1')
-        s2 = self.addSwitch('s2')
+        s1 = self.addSwitch('s1', failMode='standalone')
+        s2 = self.addSwitch('s2', failMode='standalone')
         h1 = self.addHost('h1')
         h2 = self.addHost('h2')
         h3 = self.addHost('h3')
@@ -22,7 +22,7 @@ class TreeTopology(Topo):
         h7 = self.addHost('h7')
         h8 = self.addHost('h8')
         external_host = self.addHost('h9')
-        gateway = self.addSwitch('s3')
+        gateway = self.addSwitch('s3', failMode='standalone')
 
         self.addLink(s1, h1)
         self.addLink(s1, h2)
@@ -44,7 +44,7 @@ class TreeTopology(Topo):
 if __name__ == '__main__':
     setLogLevel('info')
     topology = TreeTopology()
-    net = Mininet(topology)
+    net = Mininet(topology, controller=None)
     net.start()
     CLI(net)
     net.stop()

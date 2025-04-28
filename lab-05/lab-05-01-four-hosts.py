@@ -9,7 +9,7 @@ class SimpleTopology(Topo):
         Topo.__init__(self, num_hosts)
 
     def build(self, num_hosts):
-        switch = self.addSwitch('s1')
+        switch = self.addSwitch('s1', failMode='standalone')
         for host in range(num_hosts):
             hostname = 'h' + str(host + 1)
             node = self.addNode(hostname)
@@ -19,7 +19,7 @@ class SimpleTopology(Topo):
 if __name__ == '__main__':
     setLogLevel('info')
     topology = SimpleTopology(4)
-    net = Mininet(topology)
+    net = Mininet(topology,controller=None)
     net.start()
     CLI(net)
     net.stop()

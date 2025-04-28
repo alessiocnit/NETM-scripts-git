@@ -10,9 +10,9 @@ class ParametricTreeTopology(Topo):
         Topo.__init__(self, n_racks=num_racks, hpr=hosts_per_rack)
 
     def build(self, n_racks, hpr):
-        gateway = self.addSwitch(f's{racks+1}')
+        gateway = self.addSwitch(f's{racks+1}',failMode='standalone')
         for sw in range(racks):
-            switch = self.addSwitch(f's{sw+1}')
+            switch = self.addSwitch(f's{sw+1}',failMode='standalone')
             self.addLink(gateway, switch)
             for ht in range(hpr):
                 host_index = hpr*sw + ht + 1
@@ -25,13 +25,13 @@ class ParametricTreeTopology(Topo):
 
 if __name__ == '__main__':
     setLogLevel('info')
-    racks = 2
-    hosts_per_switch = 4
+    racks = 3
+    hosts_per_switch = 5
     if len(argv) > 2:
         racks = int(argv[1])
         hosts_per_switch = int(argv[2])
     topo = ParametricTreeTopology(racks, hosts_per_switch)
-    net = Mininet(topo)
+    net = Mininet(topo, controller=None)
     net.start()
     CLI(net)
     net.stop()

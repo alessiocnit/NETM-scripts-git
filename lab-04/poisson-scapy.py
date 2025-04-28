@@ -8,7 +8,7 @@ from scapy.layers.l2 import Ether
 from scapy.packet import Raw
 
 lambda_arrival = 10  # Intensity of arrivals (packets per second)
-lambda_length = 0.1  # Intensity of length (packets per byte) thus average length 1/lambda_length
+lambda_length = 0.0025  # Intensity of length (packets per byte) thus average length 1/lambda_length
 
 def generate_packet_length():
     return int(-math.log(1.0 - random.random()) / lambda_length)

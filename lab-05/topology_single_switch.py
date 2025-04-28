@@ -19,9 +19,9 @@ class SimplePktSwitch(Topo):
 	s0 = self.addSwitch('s0', dpid="1000000000000000", protocols='OpenFlow13', datapath='user')
 
 def run():
-    c = RemoteController('c', '127.0.0.1')
+    #c = RemoteController('c', '127.0.0.1')
     net = Mininet(topo=SimplePktSwitch(), host=CPULimitedHost, controller=None, switch=OVSSwitch)
-    net.addController(c)
+    #net.addController(c)
     net.start()
 
     CLI(net)

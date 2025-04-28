@@ -23,8 +23,8 @@ class NetworkTopo(Topo):
         r2 = self.addHost('r2', cls=LinuxRouter, ip='10.1.0.1/24')
 
         # Add 2 switches
-        s1 = self.addSwitch('s1')
-        s2 = self.addSwitch('s2')
+        s1 = self.addSwitch('s1', failMode='standalone')
+        s2 = self.addSwitch('s2', failMode='standalone')
 
         # Add host-switch links in the same subnet
         self.addLink(s1,
@@ -60,7 +60,7 @@ class NetworkTopo(Topo):
 
 def run():
     topo = NetworkTopo()
-    net = Mininet(topo=topo)
+    net = Mininet(topo=topo,controller=None)
 
     # Add routing for reaching networks that aren't directly connected
     info(net['r1'].cmd("ip route add 10.1.0.0/24 via 10.100.0.2 dev r1-eth2"))
