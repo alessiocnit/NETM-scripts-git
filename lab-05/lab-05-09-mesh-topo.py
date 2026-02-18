@@ -101,8 +101,8 @@ if __name__ == '__main__':
     topo = MyTopology()
     
     #Creation of Mininet topology
-    net = Mininet(topo=topo)
-
+    net = Mininet(topo,controller=None)
+    
     #Execution of Mininet topology
     net.start()
     CLI(net)

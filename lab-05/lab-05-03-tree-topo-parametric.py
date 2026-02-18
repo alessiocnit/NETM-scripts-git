@@ -25,8 +25,8 @@ class ParametricTreeTopology(Topo):
 
 if __name__ == '__main__':
     setLogLevel('info')
-    racks = 3
-    hosts_per_switch = 5
+    racks = 4
+    hosts_per_switch = 6
     if len(argv) > 2:
         racks = int(argv[1])
         hosts_per_switch = int(argv[2])
