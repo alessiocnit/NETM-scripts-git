@@ -2,7 +2,7 @@
 
 echo "--- Delete IP configuration of port enp0s3..."
 
-ifconfig enp0s3 0
+ifconfig eth0 0
 
 echo "--- Assign an IP to the bridge using DHCP local..."
 
