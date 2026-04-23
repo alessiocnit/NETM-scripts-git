@@ -4,6 +4,7 @@ from mininet.net import Mininet
 from mininet.node import Node
 from mininet.log import setLogLevel, info
 from mininet.cli import CLI
+from mininet.link import TCLink
 
 class LinuxRouter(Node):
     def config(self, **params):
@@ -39,6 +40,8 @@ class NetworkTopo(Topo):
         # Add router-router link in a new subnet for the router-router connection
         self.addLink(r1,
                      r2,
+                     cls=TCLink,
+                     bw=10,
                      intfName1='r1-eth2',
                      intfName2='r2-eth2',
                      params1={'ip': '10.100.0.1/24'},
