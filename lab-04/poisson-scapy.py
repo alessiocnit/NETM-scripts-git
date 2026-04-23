@@ -34,7 +34,7 @@ def generate_packets():
         packet = IP(src="10.0.2.15", dst="10.0.2.2", proto=253)/Raw(load=b"A" * packet_bytes)
         
         # Send packet using SCAPY
-        send(packet, iface="enp0s3", verbose=False)
+        send(packet, iface="eth0", verbose=False)
 
         generated_packets = generated_packets + 1
         generated_bytes = generated_bytes + packet_bytes
