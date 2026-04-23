@@ -1,0 +1,27 @@
+/usr/share/openvswitch/scripts/ovs-ctl --system-id=random start
+
+ovs-vsctl add-br br0
+
+ovs-vsctl add-port br0 eth0  
+ovs-vsctl add-port br0 eth1  
+ovs-vsctl add-port br0 eth2
+ovs-vsctl add-port br0 eth3
+ovs-vsctl add-port br0 eth4  
+
+ovs-vsctl set port eth0 tag=10
+ovs-vsctl set port eth1 tag=10
+ovs-vsctl set port eth2 tag=20
+ovs-vsctl set port eth3 tag=20
+ovs-vsctl set port eth4 trunks=10,20
+
+
+ip link set eth0 up
+ip link set eth1 up
+ip link set eth2 up
+ip link set eth3 up
+ip link set eth4 up
+
+ip link set br0 up
+
+
+

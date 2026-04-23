@@ -1,0 +1,31 @@
+
+# Attiva interfaccia fisica
+ip link set eth0 up
+
+# =========================
+# Creazione VLAN (802.1Q)
+# =========================
+ip link add link eth0 name eth0.10 type vlan id 10
+ip link add link eth0 name eth0.20 type vlan id 20
+
+# =========================
+# Assegnazione IP (gateway)
+# =========================
+ip addr add 192.168.10.1/24 dev eth0.10
+ip addr add 192.168.20.1/24 dev eth0.20
+
+# =========================
+# Attivazione interfacce
+# =========================
+ip link set eth0.10 up
+ip link set eth0.20 up
+
+
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+
+systemctl start frr
+
+
+
+
