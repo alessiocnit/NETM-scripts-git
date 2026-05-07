@@ -1,0 +1,29 @@
+/usr/share/openvswitch/scripts/ovs-ctl --system-id=random start
+
+# Create the bridge
+ovs-vsctl add-br br0
+
+# Add the interfaces 0, 1, 2 to the bridge
+ovs-vsctl add-port br0 eth0  
+ovs-vsctl add-port br0 eth1  
+ovs-vsctl add-port br0 eth2   
+
+# Activate the interfaces
+ip link set eth0 up
+ip link set eth1 up
+ip link set eth2 up
+
+# Configure the control plane interface
+ip link set eth3 up
+ip addr add 192.168.100.102/24 dev eth3
+
+# Set br0 - SDN controller address, OpenFlow version, fail-mode standalone/secure
+ovs-vsctl set-controller br0 tcp:192.168.100.100:6653 
+ovs-vsctl set bridge br0 protocols=OpenFlow13
+ovs-vsctl set-fail-mode br0 standalone
+
+# Activate br0
+ip link set br0 up
+
+
+

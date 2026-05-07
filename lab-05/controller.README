@@ -31,4 +31,9 @@ SDN controller needs some configuration:
 
 > ./lab-05-05-controller-configuration.sh
 
+--- ERRORS
+1. Controller pings but switches do not connect to the controller. 
+- Enter the ONOS shell: > ssh -p 8101 karaf@172.17.0.2
+- Check ONOS log with : > log:tail
+- Most likely it is an OpenFlow protocol version problem, be sure to start ovs with OpenFlow13
 
